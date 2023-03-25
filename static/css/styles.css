@@ -8,6 +8,7 @@ body{
     color: #333;
     line-height: 1.5;
     margin: 0;
+    
 }
 
 /* navbar */
@@ -45,6 +46,7 @@ body{
     margin-bottom: 1.0rem;
     display: grid;
     justify-items: center;
+    background-image: url("../clear_day.svg");
 }
 
 .widgets-container {
