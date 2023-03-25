@@ -18,8 +18,7 @@ def home(request):
     #if response.status_code == 200:
     weather_data = response
     weatherCode = weather_data['data']['timelines'][0]['intervals'][0]['values']['weatherCode']
-    with open('static/weather_codes.json') as f:
-        weather_code_list = json.load(f)
+    weather_code_list = json.loads('static/weather_codes.json')
     weatherIcon = weather_code_list[str(weatherCode)]+".svg"
 
     time_place =  timezonefinder.TimezoneFinder().timezone_at(lng=lon, lat=lat)
