@@ -20,7 +20,8 @@ def home(request):
     #if response.status_code == 200:
     weather_data = response
     weatherCode = weather_data['data']['timelines'][0]['intervals'][0]['values']['weatherCode']
-    with open('static/weather_codes.json') as f:
+    my_static_file = os.path.join(settings.STATIC_ROOT, 'weather_codes.json')
+    with open(my_static_file) as f:
         weather_code_list = json.load(f)
     weatherIcon = weather_code_list[str(weatherCode)]+".svg"
 
