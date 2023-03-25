@@ -3,6 +3,8 @@ import requests
 import geocoder
 from timezonefinder import timezonefinder
 import json
+import os
+from django.conf import settings
 # Create your views here.
 def home(request):
     apiKey = 'q9iopHj6fBtlpBflx9ewLcK1arBp6Tvo'
@@ -23,7 +25,8 @@ def home(request):
     weatherIcon = weather_code_list[str(weatherCode)]+".svg"
 
     time_place =  timezonefinder.TimezoneFinder().timezone_at(lng=lon, lat=lat)
-    with open('static/time_zones.json') as f:
+    my_static_file = os.path.join(settings.STATIC_ROOT, 'time_zones.json')
+    with open(my_static_file) as f:
         timezone_offset = json.load(f)
     timeVar = int(weather_data['data']['timelines'][0]['intervals'][0]['startTime'].split('T')[1].split(':')[0]) + int(timezone_offset[time_place].split(':')[0])
     print(timeVar)
