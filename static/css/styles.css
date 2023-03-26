@@ -46,7 +46,6 @@ body{
     margin-bottom: 1.0rem;
     display: grid;
     justify-items: center;
-    background-image: url("../clear_day.svg");
 }
 
 .widgets-container {
