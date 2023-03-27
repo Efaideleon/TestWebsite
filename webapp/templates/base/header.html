@@ -1,3 +1,7 @@
-<header>
+<header class = "header_container">
     {% include 'base/navbar.html' %}
+    <div class="username_container"> 
+        Welcome {{user.username}}!
+        <a href="{% url 'logout_view' %}">Logout</a>
+    </div>
 </header>
