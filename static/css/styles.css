@@ -1,19 +1,31 @@
 html{
-    --font-color: #b4b4b4;
+    --font-color: #a3a3a3;
+    --widget-font-color: #fff;
 }
 body{
-    background-color: #f5f5f7;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #333;
     line-height: 1.5;
     margin: 0;
-    
+}
+
+input{
+    width: 100%;
+}
+
+.index-body-container{
+    background-image: url(/static/dddepth-205.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 
 .header_container{
-    background-color: #fff;
-    border-bottom: 1px solid #e5e5e5;
+    background-color: #f7fbffd8;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     padding: 0.5rem;
     display: grid;
     grid-template-columns: 4fr 1fr;
@@ -49,25 +61,195 @@ body{
     background-color: #f4f4f4;
 }
 
+
+
 /* widget component */
 .widget {
-    background-color: #fff;
-    border: 1px solid #e5e5e5;
     border-radius: 5px;
-    padding: 1.0rem;
-    margin-bottom: 1.0rem;
     display: grid;
     justify-items: center;
+    border-left: 2px solid #ffffff30;
+    border-right: 2px solid #ffffff30;
+    border-bottom: 2px solid #ffffff30;
+    height: 100%;
+    color: var(--widget-font-color);
+}
+
+.widget-background {
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 }
 
 .widgets-container {
     display: grid;
-    grid-template: 1fr / repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
     grid-gap: 1.0rem;
+    padding: 1.0rem;
+    background-color: transparent;
+}
+
+.widget-values{
     padding: 1.0rem;
 }
 
-.weather_icon {
+.weather_icon img {
+    filter: invert();
     width: 50px;
     height: 50px;
+}
+
+
+.Temperature {
+    background-color: #ffffff2a;
+}
+
+.Soil.Temperature {
+    background-color: #fab73a2a;
+}
+
+.Soil.Moisture {
+    background-color: #9cff3e2a;
+}
+
+.City {
+    background-color: #73767d2a;
+}
+
+.Wind.Speed {
+    background-color: #3ef2ff2a;
+}
+
+.Humidity {
+    background-color: #3e61ff2a;
+}
+
+
+/* login page css */
+.login-body-container {
+    background-color: #ececec;
+    height: 100vh;
+    display:grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.login-box {
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: 40% 60%;
+    justify-items: center;
+    background-color: white;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border-left: 2px solid #ffffff30;
+    border-right: 2px solid #ffffff30;
+    border-bottom: 2px solid #ffffff30;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    width: 30%;
+    height: 50%;
+    color: var(black);
+}
+
+.login-box-header{
+    display: grid;
+    align-items: center;
+}
+
+.username-label-container {
+    display: grid;
+    justify-items: center;
+    padding: 0.3rem;  
+}
+
+.username-input{
+    display: grid;
+    justify-items: center; 
+}
+
+.password-label-container {
+    display: grid;
+    justify-items: center;
+    padding: 0.3rem;  
+}
+
+.password-input{
+    display: grid;
+    justify-items: center; 
+}
+
+.login-button-container{
+    display: grid;
+    justify-items: center;
+    padding: 1.0rem;
+}
+
+.login-button-container > button{
+    background-color: #90cdff; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.login-button-container > button:hover {
+    background-color: #0470eb; /* Green */
+    color: white;
+}
+
+.create-account-container{
+    display: grid;
+    justify-items: center;
+    padding: 1.0rem;
+}
+
+/*sign up page*/
+.sign-up-container{
+    background-color: #ececec;
+    height: 100vh;
+    display:grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.sign-up-box{
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: 40% 60%;
+    justify-items: center;
+    background-color: white;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border-left: 2px solid #ffffff30;
+    border-right: 2px solid #ffffff30;
+    border-bottom: 2px solid #ffffff30;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    width:25%;
+    height: 70%;
+    color: var(black);
+}
+
+.sign-up-header{
+    display: grid;
+    align-items: center;
+}
+
+.email-label-container {
+    display: grid;
+    justify-items: center;
+    padding: 0.3rem;  
+}
+.email-input{
+    display: grid;
+    justify-items: center; 
+}
+
+.sign-up-login-in-link{
+    display: grid;
+    justify-items: center;
+    padding: 1.0rem;
 }

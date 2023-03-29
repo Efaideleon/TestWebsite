@@ -9,19 +9,16 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user
-from django.contrib.auth.models import Group
 # Create your views here.
 
 @login_required(login_url='login_view')
 def home(request):
-    orders = request.user.customer.order_set.all()
+    mcuData = dataMCU.objects.get(user=request.user)
     Weather_API = WeatherAPI('q9iopHj6fBtlpBflx9ewLcK1arBp6Tvo', 'me')
     homeview_data = Weather_API.get_all_weather_data()
-    dataMCU_model = dataMCU.objects.all()
-    homeview_data['soil_moisture'] = dataMCU_model[0].soil_moisture
-    homeview_data['soil_temperature'] = dataMCU_model[0].soil_temp
-    homeview_data['wind_speed'] = dataMCU_model[0].wind_speed
-    homeview_data['orders'] = orders
+    homeview_data['soil_moisture'] = mcuData.soil_moisture
+    homeview_data['soil_temperature'] = mcuData.soil_temp
+    homeview_data['wind_speed'] = mcuData.wind_speed
     return render(request, 'index.html', {'homeview_data': homeview_data})
 
 @unauthenticated_user
@@ -30,8 +27,7 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            group = Group.objects.get(name='customers')
-            user.groups.add(group)
+            dataMCU.objects.create(user=user)
             login(request, user)
             return redirect('home')
     else:

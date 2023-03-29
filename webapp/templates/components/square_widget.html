@@ -1,7 +1,9 @@
-<div class="widget">
-    <h1> {{title}} </h1>
-    {% if icon %}
-    <div class="weather_icon"><img src="static/weathericons/{{icon}}" alt="weather icon"></div>
-    {% endif %}
-    <div> {{content}} </div>
+<div class="widget-background {{title}}">
+    <div class="widget">
+        <h1> {{title}} </h1>
+        {% if icon %}
+        <div class="weather_icon"><img src="static/weathericons/{{icon}}" alt="weather icon"></div>
+        {% endif %}
+        <div class="widget-values"> {{content}} </div>
+    </div>
 </div>

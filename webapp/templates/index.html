@@ -1,5 +1,6 @@
 {% extends "base/base.html" %}
 {% block content %}
+<div class="index-body-container">
     {% include "base/header.html" %}
     <div class="widgets-container">
         {% include "components/square_widget.html" with title="City" content=homeview_data.city %} 
@@ -9,5 +10,6 @@
         {% include "components/square_widget.html" with title="Soil Temperature" content=homeview_data.soil_temperature %} 
         {% include "components/square_widget.html" with title="Wind Speed" content=homeview_data.wind_speed %} 
     </div>
+</div>
 {% endblock content %}
 
